@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { site } from "@/content/site";
+import { TextLink } from "@/components/ui/text-link";
 
 const links = [
   {
@@ -22,36 +22,14 @@ const links = [
 
 export function HeroActions() {
   return (
-    <div className="mt-12 flex flex-wrap gap-8 text-sm">
+    <div className="mt-12 flex flex-wrap gap-8">
       {links.map((link) => (
-        <Link
+        <TextLink
           key={link.label}
           href={link.href}
-          target={link.href.startsWith("http") ? "_blank" : undefined}
-          rel={
-            link.href.startsWith("http")
-              ? "noopener noreferrer"
-              : undefined
-          }
-          className="
-            relative
-            text-[var(--muted)]
-            transition-colors
-            duration-300
-            hover:text-[var(--foreground)]
-            after:absolute
-            after:left-0
-            after:-bottom-1
-            after:h-px
-            after:w-0
-            after:bg-[var(--foreground)]
-            after:transition-all
-            after:duration-300
-            hover:after:w-full
-          "
         >
           {link.label}
-        </Link>
+        </TextLink>
       ))}
     </div>
   );
