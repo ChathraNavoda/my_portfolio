@@ -1,17 +1,18 @@
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import { ComponentPropsWithoutRef, ReactNode } from "react";
 
-type SectionProps = {
+type SectionProps = ComponentPropsWithoutRef<"section"> & {
   children: ReactNode;
-  className?: string;
 };
 
 export function Section({
   children,
   className,
+  ...props
 }: SectionProps) {
   return (
     <section
+      {...props}
       className={cn(
         "py-32 md:py-40",
         className
